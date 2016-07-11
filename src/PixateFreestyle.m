@@ -59,6 +59,12 @@
     
     // Trigger our UI subclasses to load
     [PXForceLoadControls forceLoad];
+    
+    NSString* defaultPath = [[NSBundle mainBundle] pathForResource:@"default" ofType:@"css"];
+    [PXStylesheet styleSheetFromFilePath:defaultPath withOrigin:PXStylesheetOriginApplication];
+    
+    NSString* userPath = [[NSBundle mainBundle] pathForResource:@"user" ofType:@"css"];
+    [PXStylesheet styleSheetFromFilePath:userPath withOrigin:PXStylesheetOriginUser];
 }
 
 + (PixateFreestyle *)sharedInstance
